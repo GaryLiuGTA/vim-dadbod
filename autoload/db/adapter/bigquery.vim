@@ -55,11 +55,11 @@ function! s:command_for_url(url, subcmd) abort
   "       \ "job_timeout_ms"
   "       \ ]
   let query_flags = []
-  echo g:db_adapter_bigquery_query_flags
+  " echo g:db_adapter_bigquery_query_flags
   for [k, v] in items(parsed.params)
     let op = '--'.k.'='.v
     if index(g:db_adapter_bigquery_query_flags, k) >= 0
-      echo k
+      " echo k
       call add(query_flags, op)
     else
       call add(cmd, op)
@@ -71,7 +71,7 @@ function! s:command_for_url(url, subcmd) abort
       call add(final, flag)
     endfor
   endif
-  echo final
+  " echo final
   return final
   " return cmd + [a:subcmd]
 endfunction
